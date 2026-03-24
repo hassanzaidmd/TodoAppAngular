@@ -1,12 +1,17 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Todos } from './myComponents/todos/todos';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ Todos],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('my-app');
+  protected readonly title = signal('Todo List');
+  constructor(){
+    setTimeout(() => {
+      this.title.set("Your Todos")
+    },2000);
+  }
 }
