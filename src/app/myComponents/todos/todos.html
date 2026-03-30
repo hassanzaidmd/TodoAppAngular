@@ -1,6 +1,20 @@
+<div class="container my-3">
+  <h2>Add Todo</h2>
 
-<ul>
-  <li *ngFor="let todo of todos">
-    <app-todo-item [todoItem]="todo" (todoDelete)="deleteTodo($event)"></app-todo-item>
-  </li>
-</ul>
+  <input #titleInput class="form-control my-2" placeholder="Title">
+  <input #descInput class="form-control my-2" placeholder="Description">
+
+  <button class="btn btn-primary"
+    (click)="addTodo(titleInput.value, descInput.value)">
+    Add Todo
+  </button>
+</div>
+
+<hr>
+
+<app-todo-item 
+class="container text-center"
+  *ngFor="let todo of todos"
+  [todoItem]="todo"
+  (todoDelete)="deleteTodo($event)">
+</app-todo-item>
